@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+  import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  import PolicyData from './components/PolicyData';
+  import Visualize from './components/Visualization';
+  import Navbar from './components/Nav';
 
-export default App;
+  function App() {
+    return (
+      <div className="App">
+        <Router>
+          <Navbar />
+          <div>
+            <Routes>
+              <Route path='/policy' element={<PolicyData/>} />
+              <Route path='/visualize' element={<Visualize/>} />
+              <Route path='/' element={<PolicyData/>} />
+            </Routes>
+          </div>
+        </Router>
+      </div>
+    );
+  }
+
+  export default App;
